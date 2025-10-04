@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import collections
+import hashlib
 import os
 from datetime import datetime, timedelta, timezone
 
@@ -10,7 +11,11 @@ USER = os.environ.get("G_USER", "gulldan")
 DAYS = int(os.environ.get("DAYS", "30"))
 
 HEAD = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
-since = (datetime.now(timezone.utc) - timedelta(days=DAYS)).isoformat().replace("+00:00", "Z")
+since = (
+    (datetime.now(timezone.utc) - timedelta(days=DAYS))
+    .isoformat()
+    .replace("+00:00", "Z")
+)
 
 # 1) Ищем свежие коммиты автора
 q = f"author:{USER} committer-date:>{since}"
@@ -134,26 +139,82 @@ for it in items:
         lang_map[lang] += max(1, changes)
 
 total = sum(lang_map.values()) or 1
-parts = [(k, v / total * 100.0) for k, v in lang_map.most_common()]
+parts_all = [(k, v / total * 100.0) for k, v in lang_map.most_common()]
+TOP_N = 8
+if len(parts_all) > TOP_N:
+    top = parts_all[:TOP_N]
+    other_pct = sum(p for _, p in parts_all[TOP_N:])
+    if other_pct > 0:
+        parts = top + [("Other", other_pct)]
+    else:
+        parts = top
+else:
+    parts = parts_all
 
-# Готовим простой SVG бар
-w, h, x, y = 720, 120, 20, 40
-bar_w = (w - 2 * x) / max(1, len(parts))
+# Генерируем горизонтальный барчарт для читабельности
+w = 720
+left, right, top, bottom = 140, 24, 36, 20
+row_h = 20
+row_gap = 10
+chart_h = len(parts) * (row_h + row_gap) - row_gap if parts else row_h
+h = top + chart_h + bottom
+chart_w = w - left - right
+
+
+def color_for(name):
+    # стабильный оттенок по названию языка
+    hue = int.from_bytes(hashlib.sha1(name.encode("utf-8")).digest()[:2], "big") % 360
+    return f"hsl({hue},60%,50%)"
+
+
+def pct_label(p):
+    return f"{p:.0f}%" if p >= 5 else f"{p:.1f}%"
+
+
 svg = [
     f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}">',
-    "<style>.t{font:12px sans-serif;dominant-baseline:middle}</style>",
-    f'<text x="{x}" y="20" class="t">Active languages (last {DAYS} days)</text>',
+    "<style>"
+    ".t{font:12px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;dominant-baseline:middle}"
+    ".s{font:11px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;fill:#555}"
+    "</style>",
+    f'<text x="{left}" y="{top - 16}" class="t">Active languages (last {DAYS} days)</text>',
 ]
-cx = x
+
+# сетка по 0/25/50/75/100
+for i in range(0, 101, 25):
+    gx = left + chart_w * i / 100.0
+    svg.append(
+        f'<line x1="{gx:.1f}" y1="{top}" x2="{gx:.1f}" y2="{h - bottom}" stroke="#eee" />'
+    )
+    svg.append(
+        f'<text x="{gx:.1f}" y="{top - 4}" class="s" text-anchor="middle">{i}%</text>'
+    )
+
+y = top
 for name, pct in parts:
-    bh = int(pct / 100.0 * (h - y - 20))
+    width_px = chart_w * max(0.0, min(100.0, pct)) / 100.0
+    bar_y = y + (row_h - 14) / 2
+    fill = color_for(name)
+    # подпись слева
     svg.append(
-        f'<rect x="{cx:.1f}" y="{h - 20 - bh}" width="{bar_w - 6:.1f}" height="{bh}" rx="3" ry="3" />'
+        f'<text x="{left - 8}" y="{y + row_h / 2:.1f}" class="t" text-anchor="end">{name}</text>'
     )
+    # бар
     svg.append(
-        f'<text x="{cx + (bar_w - 6) / 2:.1f}" y="{h - 10}" class="t" text-anchor="middle">{name} {pct:.0f}%</text>'
+        f'<rect x="{left}" y="{bar_y:.1f}" width="{width_px:.1f}" height="14" rx="3" ry="3" fill="{fill}" stroke="#ddd" />'
     )
-    cx += bar_w
+    # процент — внутри бара, если достаточно места, иначе справа
+    label = pct_label(pct)
+    if width_px >= 36:
+        svg.append(
+            f'<text x="{left + width_px - 4:.1f}" y="{y + row_h / 2:.1f}" class="t" text-anchor="end" fill="#fff">{label}</text>'
+        )
+    else:
+        svg.append(
+            f'<text x="{left + width_px + 6:.1f}" y="{y + row_h / 2:.1f}" class="t" text-anchor="start">{label}</text>'
+        )
+    y += row_h + row_gap
+
 svg.append("</svg>")
 open("active_langs.svg", "w").write("\n".join(svg))
 print("Wrote active_langs.svg")
