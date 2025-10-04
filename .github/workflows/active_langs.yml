@@ -2,7 +2,7 @@ name: Active Languages (last 30 days)
 
 on:
   schedule:
-    - cron: "17 */24 * * *" 
+    - cron: "17 5 * * *" 
   workflow_dispatch:
 
 permissions:

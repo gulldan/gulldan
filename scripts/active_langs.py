@@ -174,9 +174,10 @@ def pct_label(p):
 svg = [
     f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}">',
     "<style>"
-    ".t{font:12px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;dominant-baseline:middle}"
-    ".s{font:11px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;fill:#555}"
+    ".t{font:12px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;dominant-baseline:middle;fill:#24292f}"
+    ".s{font:11px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;fill:#6b7280}"
     "</style>",
+    f'<rect x="0" y="0" width="{w}" height="{h}" fill="#ffffff" />',
     f'<text x="{left}" y="{top - 16}" class="t">Active languages (last {DAYS} days)</text>',
 ]
 
@@ -184,7 +185,7 @@ svg = [
 for i in range(0, 101, 25):
     gx = left + chart_w * i / 100.0
     svg.append(
-        f'<line x1="{gx:.1f}" y1="{top}" x2="{gx:.1f}" y2="{h - bottom}" stroke="#eee" />'
+        f'<line x1="{gx:.1f}" y1="{top}" x2="{gx:.1f}" y2="{h - bottom}" stroke="#e5e7eb" />'
     )
     svg.append(
         f'<text x="{gx:.1f}" y="{top - 4}" class="s" text-anchor="middle">{i}%</text>'
