@@ -1,0 +1,24 @@
+name: Active Languages (last 30 days)
+on:
+  schedule:
+    - cron: "17 */24 * * *" 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run analyzer
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          G_USER: gulldan
+          DAYS: 30
+        run: |
+          python3 -m pip install --quiet requests
+          python3 scripts/active_langs.py
+      - name: Commit svg
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(readme): update active_langs.svg"
+          file_pattern: active_langs.svg
