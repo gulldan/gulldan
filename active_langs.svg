@@ -13,14 +13,14 @@
 <line x1="696.0" y1="36" x2="696.0" y2="296" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">Python</text>
-<rect x="140" y="39.0" width="204.0" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
-<text x="340.0" y="46.0" class="t" text-anchor="end" fill="#fff">37%</text>
+<rect x="140" y="39.0" width="203.8" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
+<text x="339.8" y="46.0" class="t" text-anchor="end" fill="#fff">37%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">Go</text>
-<rect x="140" y="69.0" width="187.9" height="14" rx="3" ry="3" fill="hsl(267,60%,50%)" stroke="#ddd" />
-<text x="323.9" y="76.0" class="t" text-anchor="end" fill="#fff">34%</text>
+<rect x="140" y="69.0" width="188.0" height="14" rx="3" ry="3" fill="hsl(267,60%,50%)" stroke="#ddd" />
+<text x="324.0" y="76.0" class="t" text-anchor="end" fill="#fff">34%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="99.0" width="65.6" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="201.6" y="106.0" class="t" text-anchor="end" fill="#fff">12%</text>
+<rect x="140" y="99.0" width="65.7" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="201.7" y="106.0" class="t" text-anchor="end" fill="#fff">12%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">YAML</text>
 <rect x="140" y="129.0" width="53.6" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
 <text x="189.6" y="136.0" class="t" text-anchor="end" fill="#fff">10%</text>
