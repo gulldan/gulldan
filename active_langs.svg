@@ -13,30 +13,30 @@
 <line x1="696.0" y1="36" x2="696.0" y2="296" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">JSON</text>
-<rect x="140" y="39.0" width="154.7" height="14" rx="3" ry="3" fill="hsl(74,60%,50%)" stroke="#ddd" />
-<text x="290.7" y="46.0" class="t" text-anchor="end" fill="#fff">28%</text>
+<rect x="140" y="39.0" width="156.8" height="14" rx="3" ry="3" fill="hsl(74,60%,50%)" stroke="#ddd" />
+<text x="292.8" y="46.0" class="t" text-anchor="end" fill="#fff">28%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">Go</text>
-<rect x="140" y="69.0" width="139.4" height="14" rx="3" ry="3" fill="hsl(267,60%,50%)" stroke="#ddd" />
-<text x="275.4" y="76.0" class="t" text-anchor="end" fill="#fff">25%</text>
+<rect x="140" y="69.0" width="141.3" height="14" rx="3" ry="3" fill="hsl(267,60%,50%)" stroke="#ddd" />
+<text x="277.3" y="76.0" class="t" text-anchor="end" fill="#fff">25%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="99.0" width="116.4" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="252.4" y="106.0" class="t" text-anchor="end" fill="#fff">21%</text>
+<rect x="140" y="99.0" width="112.7" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="248.7" y="106.0" class="t" text-anchor="end" fill="#fff">20%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">YAML</text>
-<rect x="140" y="129.0" width="53.6" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
-<text x="189.6" y="136.0" class="t" text-anchor="end" fill="#fff">10%</text>
+<rect x="140" y="129.0" width="52.0" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
+<text x="188.0" y="136.0" class="t" text-anchor="end" fill="#fff">9%</text>
 <text x="132" y="166.0" class="t" text-anchor="end">Python</text>
-<rect x="140" y="159.0" width="46.2" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
-<text x="182.2" y="166.0" class="t" text-anchor="end" fill="#fff">8%</text>
+<rect x="140" y="159.0" width="46.8" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
+<text x="182.8" y="166.0" class="t" text-anchor="end" fill="#fff">8%</text>
 <text x="132" y="196.0" class="t" text-anchor="end">Rust</text>
-<rect x="140" y="189.0" width="20.2" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
-<text x="166.2" y="196.0" class="t" text-anchor="start">3.6%</text>
+<rect x="140" y="189.0" width="20.5" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
+<text x="166.5" y="196.0" class="t" text-anchor="start">3.7%</text>
 <text x="132" y="226.0" class="t" text-anchor="end">HTML</text>
-<rect x="140" y="219.0" width="12.1" height="14" rx="3" ry="3" fill="hsl(139,60%,50%)" stroke="#ddd" />
-<text x="158.1" y="226.0" class="t" text-anchor="start">2.2%</text>
+<rect x="140" y="219.0" width="12.3" height="14" rx="3" ry="3" fill="hsl(139,60%,50%)" stroke="#ddd" />
+<text x="158.3" y="226.0" class="t" text-anchor="start">2.2%</text>
 <text x="132" y="256.0" class="t" text-anchor="end">Shell</text>
-<rect x="140" y="249.0" width="10.3" height="14" rx="3" ry="3" fill="hsl(337,60%,50%)" stroke="#ddd" />
-<text x="156.3" y="256.0" class="t" text-anchor="start">1.8%</text>
+<rect x="140" y="249.0" width="10.4" height="14" rx="3" ry="3" fill="hsl(337,60%,50%)" stroke="#ddd" />
+<text x="156.4" y="256.0" class="t" text-anchor="start">1.9%</text>
 <text x="132" y="286.0" class="t" text-anchor="end">Other</text>
-<rect x="140" y="279.0" width="3.0" height="14" rx="3" ry="3" fill="hsl(186,60%,50%)" stroke="#ddd" />
-<text x="149.0" y="286.0" class="t" text-anchor="start">0.5%</text>
+<rect x="140" y="279.0" width="3.1" height="14" rx="3" ry="3" fill="hsl(186,60%,50%)" stroke="#ddd" />
+<text x="149.1" y="286.0" class="t" text-anchor="start">0.6%</text>
 </svg>
