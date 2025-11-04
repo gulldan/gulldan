@@ -19,8 +19,8 @@
 <rect x="140" y="69.0" width="141.3" height="14" rx="3" ry="3" fill="hsl(267,60%,50%)" stroke="#ddd" />
 <text x="277.3" y="76.0" class="t" text-anchor="end" fill="#fff">25%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="99.0" width="112.7" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="248.7" y="106.0" class="t" text-anchor="end" fill="#fff">20%</text>
+<rect x="140" y="99.0" width="112.8" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="248.8" y="106.0" class="t" text-anchor="end" fill="#fff">20%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">YAML</text>
 <rect x="140" y="129.0" width="52.0" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
 <text x="188.0" y="136.0" class="t" text-anchor="end" fill="#fff">9%</text>
