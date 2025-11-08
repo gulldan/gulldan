@@ -13,11 +13,11 @@
 <line x1="696.0" y1="36" x2="696.0" y2="296" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">TypeScript</text>
-<rect x="140" y="39.0" width="230.8" height="14" rx="3" ry="3" fill="hsl(80,60%,50%)" stroke="#ddd" />
-<text x="366.8" y="46.0" class="t" text-anchor="end" fill="#fff">42%</text>
+<rect x="140" y="39.0" width="231.0" height="14" rx="3" ry="3" fill="hsl(80,60%,50%)" stroke="#ddd" />
+<text x="367.0" y="46.0" class="t" text-anchor="end" fill="#fff">42%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">JSON</text>
-<rect x="140" y="69.0" width="217.9" height="14" rx="3" ry="3" fill="hsl(74,60%,50%)" stroke="#ddd" />
-<text x="353.9" y="76.0" class="t" text-anchor="end" fill="#fff">39%</text>
+<rect x="140" y="69.0" width="218.0" height="14" rx="3" ry="3" fill="hsl(74,60%,50%)" stroke="#ddd" />
+<text x="354.0" y="76.0" class="t" text-anchor="end" fill="#fff">39%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Markdown</text>
 <rect x="140" y="99.0" width="53.1" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
 <text x="189.1" y="106.0" class="t" text-anchor="end" fill="#fff">10%</text>
@@ -34,8 +34,8 @@
 <rect x="140" y="219.0" width="6.3" height="14" rx="3" ry="3" fill="hsl(157,60%,50%)" stroke="#ddd" />
 <text x="152.3" y="226.0" class="t" text-anchor="start">1.1%</text>
 <text x="132" y="256.0" class="t" text-anchor="end">YAML</text>
-<rect x="140" y="249.0" width="2.0" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
-<text x="148.0" y="256.0" class="t" text-anchor="start">0.4%</text>
+<rect x="140" y="249.0" width="1.7" height="14" rx="3" ry="3" fill="hsl(308,60%,50%)" stroke="#ddd" />
+<text x="147.7" y="256.0" class="t" text-anchor="start">0.3%</text>
 <text x="132" y="286.0" class="t" text-anchor="end">Other</text>
 <rect x="140" y="279.0" width="2.6" height="14" rx="3" ry="3" fill="hsl(186,60%,50%)" stroke="#ddd" />
 <text x="148.6" y="286.0" class="t" text-anchor="start">0.5%</text>
