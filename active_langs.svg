@@ -19,8 +19,8 @@
 <rect x="140" y="69.0" width="218.0" height="14" rx="3" ry="3" fill="hsl(74,60%,50%)" stroke="#ddd" />
 <text x="354.0" y="76.0" class="t" text-anchor="end" fill="#fff">39%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="99.0" width="53.1" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="189.1" y="106.0" class="t" text-anchor="end" fill="#fff">10%</text>
+<rect x="140" y="99.0" width="53.2" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="189.2" y="106.0" class="t" text-anchor="end" fill="#fff">10%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">Python</text>
 <rect x="140" y="129.0" width="25.4" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
 <text x="171.4" y="136.0" class="t" text-anchor="start">4.6%</text>
