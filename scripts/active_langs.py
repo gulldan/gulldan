@@ -30,95 +30,319 @@ items = r.json().get("items", [])
 lang_map = collections.Counter()
 
 
+def parse_linguist_yaml(payload):
+    # легкий парсер languages.yml из github/linguist — вынимаем extensions/filenames без внешних зависимостей
+    ext_map, filename_map = {}, {}
+    current_lang = None
+    current_section = None
+
+    def add_value(section, raw_value):
+        value = raw_value.split("#", 1)[0].strip().strip('"').strip("'")
+        if not value:
+            return
+        if section == "extensions":
+            ext_map[value.lower()] = current_lang
+        elif section == "filenames":
+            filename_map[value.lower()] = current_lang
+
+    for raw_line in payload.splitlines():
+        line = raw_line.rstrip()
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if not line.startswith(" "):
+            current_lang = stripped.split(":", 1)[0]
+            current_section = None
+            continue
+        if ":" in stripped and not stripped.startswith("-"):
+            key, after = stripped.split(":", 1)
+            key = key.strip()
+            after = after.strip()
+            if key in ("extensions", "filenames"):
+                current_section = key
+                if after.startswith("[") and after.endswith("]"):
+                    for entry in after[1:-1].split(","):
+                        add_value(key, entry)
+                    current_section = None
+            else:
+                current_section = None
+            continue
+        if stripped.startswith("-") and current_lang and current_section:
+            add_value(current_section, stripped[1:].strip())
+    return ext_map, filename_map
+
+
+def load_linguist_maps():
+    url = "https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml"
+    try:
+        resp = requests.get(url, headers=HEAD, timeout=10)
+        resp.raise_for_status()
+    except Exception:
+        return {}, {}
+    return parse_linguist_yaml(resp.text)
+
+
+LINGUIST_EXT_MAP, LINGUIST_FILENAME_MAP = load_linguist_maps()
+
+# запасные значения для популярных языков на случай, если загрузка linguist недоступна
+FALLBACK_SPECIAL_NAMES = {
+    "dockerfile": "Docker",
+    "makefile": "Makefile",
+    "cmakelists.txt": "CMake",
+    "jenkinsfile": "Jenkins",
+    "gemfile": "Ruby",
+    "rakefile": "Ruby",
+    "podfile": "CocoaPods",
+    "vagrantfile": "Vagrant",
+    "procfile": "Procfile",
+    "brewfile": "Homebrew",
+    "build": "Starlark",
+    "build.bazel": "Starlark",
+    "workspace": "Starlark",
+    "workspace.bazel": "Starlark",
+    "tiltfile": "Starlark",
+    "justfile": "Just",
+    "meson.build": "Meson",
+    "meson_options.txt": "Meson",
+    "go.mod": "Go",
+    "go.sum": "Go",
+    "go.work": "Go",
+}
+
+FALLBACK_EXTENSION_MAP = {
+    ".d.ts": "TypeScript",
+    ".cts": "TypeScript",
+    ".mts": "TypeScript",
+    ".ts": "TypeScript",
+    ".tsx": "TypeScript",
+    ".cjs": "JavaScript",
+    ".mjs": "JavaScript",
+    ".js": "JavaScript",
+    ".jsx": "JavaScript",
+    ".coffee": "CoffeeScript",
+    ".litcoffee": "CoffeeScript",
+    ".coffee.md": "CoffeeScript",
+    ".vue": "Vue",
+    ".svelte": "Svelte",
+    ".astro": "Astro",
+    ".pug": "Pug",
+    ".jade": "Pug",
+    ".ejs": "EJS",
+    ".hbs": "Handlebars",
+    ".handlebars": "Handlebars",
+    ".mustache": "Mustache",
+    ".twig": "Twig",
+    ".njk": "Nunjucks",
+    ".liquid": "Liquid",
+    ".slim": "Slim",
+    ".haml": "Haml",
+    ".erb": "ERB",
+    ".mdx": "MDX",
+    ".md": "Markdown",
+    ".markdown": "Markdown",
+    ".rst": "reStructuredText",
+    ".adoc": "AsciiDoc",
+    ".asciidoc": "AsciiDoc",
+    ".rmd": "R Markdown",
+    ".ipynb": "Python",
+    ".py": "Python",
+    ".pyi": "Python",
+    ".pyx": "Python",
+    ".pxd": "Python",
+    ".pxi": "Python",
+    ".rpy": "Python",
+    ".c": "C",
+    ".h": "C",
+    ".c++": "C++",
+    ".cpp": "C++",
+    ".cxx": "C++",
+    ".cc": "C++",
+    ".cp": "C++",
+    ".hpp": "C++",
+    ".hxx": "C++",
+    ".hh": "C++",
+    ".h++": "C++",
+    ".inl": "C++",
+    ".ipp": "C++",
+    ".go": "Go",
+    ".rs": "Rust",
+    ".d": "D",
+    ".zig": "Zig",
+    ".nim": "Nim",
+    ".nims": "Nim",
+    ".cr": "Crystal",
+    ".java": "Java",
+    ".groovy": "Groovy",
+    ".gvy": "Groovy",
+    ".gsh": "Groovy",
+    ".gy": "Groovy",
+    ".php": "PHP",
+    ".phtml": "PHP",
+    ".php3": "PHP",
+    ".php4": "PHP",
+    ".php5": "PHP",
+    ".php7": "PHP",
+    ".phps": "PHP",
+    ".phpt": "PHP",
+    ".pht": "PHP",
+    ".ctp": "PHP",
+    ".rb": "Ruby",
+    ".gemspec": "Ruby",
+    ".rake": "Ruby",
+    ".kt": "Kotlin",
+    ".kts": "Kotlin",
+    ".scala": "Scala",
+    ".cs": "C#",
+    ".fs": "F#",
+    ".fsi": "F#",
+    ".fsx": "F#",
+    ".vb": "Visual Basic",
+    ".bas": "Visual Basic",
+    ".vbs": "VBScript",
+    ".swift": "Swift",
+    ".m": "Objective-C",
+    ".mm": "Objective-C++",
+    ".dart": "Dart",
+    ".clj": "Clojure",
+    ".cljs": "Clojure",
+    ".cljc": "Clojure",
+    ".edn": "Clojure",
+    ".lisp": "Common Lisp",
+    ".lsp": "Common Lisp",
+    ".cl": "Common Lisp",
+    ".el": "Emacs Lisp",
+    ".scm": "Scheme",
+    ".ss": "Scheme",
+    ".rkt": "Racket",
+    ".ml": "OCaml",
+    ".mli": "OCaml",
+    ".mll": "OCaml",
+    ".mly": "OCaml",
+    ".re": "ReasonML",
+    ".rei": "ReasonML",
+    ".hs": "Haskell",
+    ".lhs": "Haskell",
+    ".purs": "PureScript",
+    ".elm": "Elm",
+    ".hx": "Haxe",
+    ".hxml": "Haxe",
+    ".erl": "Erlang",
+    ".hrl": "Erlang",
+    ".ex": "Elixir",
+    ".exs": "Elixir",
+    ".lua": "Lua",
+    ".gd": "GDScript",
+    ".r": "R",
+    ".jl": "Julia",
+    ".sql": "SQL",
+    ".psql": "SQL",
+    ".pgsql": "SQL",
+    ".proto": "Protocol Buffers",
+    ".thrift": "Thrift",
+    ".graphql": "GraphQL",
+    ".gql": "GraphQL",
+    ".sol": "Solidity",
+    ".prisma": "Prisma",
+    ".hcl": "HCL",
+    ".tf": "Terraform",
+    ".tfvars": "Terraform",
+    ".nomad": "HCL",
+    ".cmake": "CMake",
+    ".mk": "Makefile",
+    ".ninja": "Ninja",
+    ".gradle": "Gradle",
+    ".scss": "SCSS",
+    ".sass": "Sass",
+    ".less": "Less",
+    ".styl": "Stylus",
+    ".pcss": "CSS",
+    ".postcss": "CSS",
+    ".css": "CSS",
+    ".html": "HTML",
+    ".htm": "HTML",
+    ".xhtml": "HTML",
+    ".xml": "XML",
+    ".xsd": "XML",
+    ".xsl": "XSLT",
+    ".xslt": "XSLT",
+    ".yaml": "YAML",
+    ".yml": "YAML",
+    ".toml": "TOML",
+    ".ini": "INI",
+    ".cfg": "INI",
+    ".properties": "Properties",
+    ".json": "JSON",
+    ".json5": "JSON5",
+    ".csv": "CSV",
+    ".tsv": "TSV",
+    ".tex": "LaTeX",
+    ".sty": "LaTeX",
+    ".cls": "LaTeX",
+    ".bib": "BibTeX",
+    ".pas": "Pascal",
+    ".pp": "Pascal",
+    ".dpr": "Pascal",
+    ".ada": "Ada",
+    ".adb": "Ada",
+    ".ads": "Ada",
+    ".asm": "Assembly",
+    ".s": "Assembly",
+    ".nasm": "Assembly",
+    ".wat": "WebAssembly",
+    ".wasm": "WebAssembly",
+    ".v": "Verilog",
+    ".vh": "Verilog",
+    ".sv": "SystemVerilog",
+    ".svh": "SystemVerilog",
+    ".vhd": "VHDL",
+    ".vhdl": "VHDL",
+    ".mof": "MOF",
+    ".bat": "Batch",
+    ".cmd": "Batch",
+    ".ps1": "PowerShell",
+    ".psm1": "PowerShell",
+    ".psd1": "PowerShell",
+    ".fish": "Shell",
+    ".zsh": "Shell",
+    ".sh": "Shell",
+    ".bash": "Shell",
+    ".ksh": "Shell",
+    ".bats": "Shell",
+    ".awk": "Awk",
+    ".sed": "Sed",
+    ".tcl": "Tcl",
+    ".tk": "Tcl",
+    ".robot": "Robot Framework",
+    ".feature": "Gherkin",
+    ".bzl": "Starlark",
+    ".bazel": "Starlark",
+    ".nix": "Nix",
+    ".gradle.kts": "Kotlin",
+    ".podspec": "Ruby",
+}
+
+SPECIAL_NAMES = {}
+SPECIAL_NAMES.update(LINGUIST_FILENAME_MAP)
+SPECIAL_NAMES.update(FALLBACK_SPECIAL_NAMES)
+
+EXTENSION_MAP = {}
+EXTENSION_MAP.update(LINGUIST_EXT_MAP)
+EXTENSION_MAP.update(FALLBACK_EXTENSION_MAP)
+EXT_MATCH_ORDER = sorted(EXTENSION_MAP, key=len, reverse=True)
+
+
 def ext2lang(path):
     p = path.lower()
     base = os.path.basename(p)
-    # специальные имена файлов без расширений
-    special_names = {
-        "dockerfile": "Docker",
-        "makefile": "Makefile",
-        "cmakelists.txt": "CMake",
-        "jenkinsfile": "Jenkins",
-        "gemfile": "Ruby",
-        "rakefile": "Ruby",
-        "podfile": "CocoaPods",
-        "vagrantfile": "Vagrant",
-        "procfile": "Procfile",
-        "brewfile": "Homebrew",
-    }
-    if base in special_names:
-        return special_names[base]
+    if base in SPECIAL_NAMES:
+        return SPECIAL_NAMES[base]
     if base.startswith("dockerfile"):
         return "Docker"
     if base.endswith(".gradle") or base.endswith(".gradle.kts"):
         return "Gradle"
-    # маппа расширений → языки
-    mapping = {
-        ".py": "Python",
-        ".ipynb": "Python",
-        ".go": "Go",
-        ".rs": "Rust",
-        ".ts": "TypeScript",
-        ".tsx": "TypeScript",
-        ".js": "JavaScript",
-        ".jsx": "JavaScript",
-        ".vue": "Vue",
-        ".svelte": "Svelte",
-        ".astro": "Astro",
-        ".java": "Java",
-        ".kt": "Kotlin",
-        ".kts": "Kotlin",
-        ".scala": "Scala",
-        ".cs": "C#",
-        ".swift": "Swift",
-        ".m": "Objective-C",
-        ".mm": "Objective-C++",
-        ".php": "PHP",
-        ".rb": "Ruby",
-        ".dart": "Dart",
-        ".ex": "Elixir",
-        ".exs": "Elixir",
-        ".erl": "Erlang",
-        ".ml": "OCaml",
-        ".hs": "Haskell",
-        ".lua": "Lua",
-        ".r": "R",
-        ".jl": "Julia",
-        ".sql": "SQL",
-        ".proto": "Protocol Buffers",
-        ".graphql": "GraphQL",
-        ".gql": "GraphQL",
-        ".sol": "Solidity",
-        ".tf": "Terraform",
-        ".tfvars": "Terraform",
-        ".hcl": "HCL",
-        ".cmake": "CMake",
-        ".mk": "Makefile",
-        ".bat": "Batch",
-        ".cmd": "Batch",
-        ".ps1": "PowerShell",
-        ".psm1": "PowerShell",
-        ".fish": "Shell",
-        ".zsh": "Shell",
-        ".sh": "Shell",
-        ".bash": "Shell",
-        ".scss": "SCSS",
-        ".less": "Less",
-        ".css": "CSS",
-        ".html": "HTML",
-        ".htm": "HTML",
-        ".xml": "XML",
-        ".yml": "YAML",
-        ".yaml": "YAML",
-        ".toml": "TOML",
-        ".json": "JSON",
-        ".md": "Markdown",
-        ".rst": "reStructuredText",
-        ".tex": "LaTeX",
-    }
-    for ext, lang in mapping.items():
+    for ext in EXT_MATCH_ORDER:
         if p.endswith(ext):
-            return lang
+            return EXTENSION_MAP[ext]
     return None
 
 
