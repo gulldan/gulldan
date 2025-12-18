@@ -13,17 +13,17 @@
 <line x1="696.0" y1="36" x2="696.0" y2="266" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="39.0" width="255.6" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="391.6" y="46.0" class="t" text-anchor="end" fill="#fff">46%</text>
+<rect x="140" y="39.0" width="255.7" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="391.7" y="46.0" class="t" text-anchor="end" fill="#fff">46%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">Python</text>
 <rect x="140" y="69.0" width="152.1" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
 <text x="288.1" y="76.0" class="t" text-anchor="end" fill="#fff">27%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Rust</text>
-<rect x="140" y="99.0" width="75.0" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
-<text x="211.0" y="106.0" class="t" text-anchor="end" fill="#fff">13%</text>
+<rect x="140" y="99.0" width="75.1" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
+<text x="211.1" y="106.0" class="t" text-anchor="end" fill="#fff">13%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">SVG</text>
-<rect x="140" y="129.0" width="49.1" height="14" rx="3" ry="3" fill="hsl(212,60%,50%)" stroke="#ddd" />
-<text x="185.1" y="136.0" class="t" text-anchor="end" fill="#fff">9%</text>
+<rect x="140" y="129.0" width="48.9" height="14" rx="3" ry="3" fill="hsl(212,60%,50%)" stroke="#ddd" />
+<text x="184.9" y="136.0" class="t" text-anchor="end" fill="#fff">9%</text>
 <text x="132" y="166.0" class="t" text-anchor="end">Protocol Buffers</text>
 <rect x="140" y="159.0" width="20.4" height="14" rx="3" ry="3" fill="hsl(157,60%,50%)" stroke="#ddd" />
 <text x="166.4" y="166.0" class="t" text-anchor="start">3.7%</text>
