@@ -13,23 +13,23 @@
 <line x1="696.0" y1="36" x2="696.0" y2="266" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="39.0" width="258.6" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="394.6" y="46.0" class="t" text-anchor="end" fill="#fff">47%</text>
+<rect x="140" y="39.0" width="259.2" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="395.2" y="46.0" class="t" text-anchor="end" fill="#fff">47%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">Python</text>
-<rect x="140" y="69.0" width="153.7" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
-<text x="289.7" y="76.0" class="t" text-anchor="end" fill="#fff">28%</text>
+<rect x="140" y="69.0" width="154.1" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
+<text x="290.1" y="76.0" class="t" text-anchor="end" fill="#fff">28%</text>
 <text x="132" y="106.0" class="t" text-anchor="end">Rust</text>
-<rect x="140" y="99.0" width="75.9" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
-<text x="211.9" y="106.0" class="t" text-anchor="end" fill="#fff">14%</text>
+<rect x="140" y="99.0" width="76.0" height="14" rx="3" ry="3" fill="hsl(70,60%,50%)" stroke="#ddd" />
+<text x="212.0" y="106.0" class="t" text-anchor="end" fill="#fff">14%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">SVG</text>
-<rect x="140" y="129.0" width="43.3" height="14" rx="3" ry="3" fill="hsl(212,60%,50%)" stroke="#ddd" />
-<text x="179.3" y="136.0" class="t" text-anchor="end" fill="#fff">8%</text>
+<rect x="140" y="129.0" width="42.1" height="14" rx="3" ry="3" fill="hsl(212,60%,50%)" stroke="#ddd" />
+<text x="178.1" y="136.0" class="t" text-anchor="end" fill="#fff">8%</text>
 <text x="132" y="166.0" class="t" text-anchor="end">Protocol Buffers</text>
 <rect x="140" y="159.0" width="20.6" height="14" rx="3" ry="3" fill="hsl(157,60%,50%)" stroke="#ddd" />
 <text x="166.6" y="166.0" class="t" text-anchor="start">3.7%</text>
 <text x="132" y="196.0" class="t" text-anchor="end">Text</text>
-<rect x="140" y="189.0" width="1.9" height="14" rx="3" ry="3" fill="hsl(290,60%,50%)" stroke="#ddd" />
-<text x="147.9" y="196.0" class="t" text-anchor="start">0.4%</text>
+<rect x="140" y="189.0" width="2.0" height="14" rx="3" ry="3" fill="hsl(290,60%,50%)" stroke="#ddd" />
+<text x="148.0" y="196.0" class="t" text-anchor="start">0.4%</text>
 <text x="132" y="226.0" class="t" text-anchor="end">TOML</text>
 <rect x="140" y="219.0" width="1.8" height="14" rx="3" ry="3" fill="hsl(76,60%,50%)" stroke="#ddd" />
 <text x="147.8" y="226.0" class="t" text-anchor="start">0.3%</text>
