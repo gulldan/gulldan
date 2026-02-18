@@ -8,9 +8,11 @@ Full CV (RU/EN): [HH](https://spb.hh.ru/resume/3b89b02cff0f6f749d0039ed1f70615a4
 
 ### Selected hacks work (KvadricepsAI)
 - **Low-Poly 3D Generator** — text/image → GLB/UV/PBR in ~1 min. End-to-end demo (GameDevAI 2025 — 1st). [[repo]](https://github.com/gulldan/gamedevai2025)
-- **FetalCare CTG** — ingest → analytics → clinician UI; rules+ML (NICE/ACOG/NICHD) (LCT 2025).
+- **FetalCare CTG** — ingest → analytics → clinician UI (embed); rules+ML (NICE/ACOG/NICHD) (LCT 2025).
  [[repo]](https://github.com/gulldan/lct2025-kvadriceps-fetal-public)
+- **AI-driven banner generator** text → image + edit_image. End-to-end demo (Master of Telegram Ads: Development Edition — 4th) [[repo]](https://github.com/gulldan/tgAds2026-public)
 - **robust face-ID** — adversarial/deepfake-resistant pipeline, eval & docs Kryptonite ML’25 — 5rd. [[repo]](https://github.com/gulldan/Kryptonite-ML-Challenge-2025)
+
 
 
 ### Stack (short)
