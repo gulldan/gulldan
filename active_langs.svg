@@ -13,8 +13,8 @@
 <line x1="696.0" y1="36" x2="696.0" y2="296" stroke="#e5e7eb" />
 <text x="696.0" y="32" class="s" text-anchor="middle">100%</text>
 <text x="132" y="46.0" class="t" text-anchor="end">Vim Help File</text>
-<rect x="140" y="39.0" width="541.8" height="14" rx="3" ry="3" fill="hsl(323,60%,50%)" stroke="#ddd" />
-<text x="677.8" y="46.0" class="t" text-anchor="end" fill="#fff">97%</text>
+<rect x="140" y="39.0" width="541.9" height="14" rx="3" ry="3" fill="hsl(323,60%,50%)" stroke="#ddd" />
+<text x="677.9" y="46.0" class="t" text-anchor="end" fill="#fff">97%</text>
 <text x="132" y="76.0" class="t" text-anchor="end">Python</text>
 <rect x="140" y="69.0" width="6.3" height="14" rx="3" ry="3" fill="hsl(134,60%,50%)" stroke="#ddd" />
 <text x="152.3" y="76.0" class="t" text-anchor="start">1.1%</text>
@@ -22,8 +22,8 @@
 <rect x="140" y="99.0" width="3.1" height="14" rx="3" ry="3" fill="hsl(209,60%,50%)" stroke="#ddd" />
 <text x="149.1" y="106.0" class="t" text-anchor="start">0.6%</text>
 <text x="132" y="136.0" class="t" text-anchor="end">Markdown</text>
-<rect x="140" y="129.0" width="1.8" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
-<text x="147.8" y="136.0" class="t" text-anchor="start">0.3%</text>
+<rect x="140" y="129.0" width="1.7" height="14" rx="3" ry="3" fill="hsl(190,60%,50%)" stroke="#ddd" />
+<text x="147.7" y="136.0" class="t" text-anchor="start">0.3%</text>
 <text x="132" y="166.0" class="t" text-anchor="end">C++</text>
 <rect x="140" y="159.0" width="1.1" height="14" rx="3" ry="3" fill="hsl(115,60%,50%)" stroke="#ddd" />
 <text x="147.1" y="166.0" class="t" text-anchor="start">0.2%</text>
