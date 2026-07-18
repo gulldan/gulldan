@@ -28,8 +28,8 @@ Python • TensorRT/Triton • Kubernetes • Docker (distroless) • ClearML �
 - Repositories (public, owner, non-fork): [25](https://github.com/gulldan?tab=repositories)
 - Stars (across owned public repos): [4](https://github.com/gulldan?tab=stars)
 - Followers: 12
-- Contributions (last 30 days): 332
+- Contributions (last 30 days): 329
 - PRs / Issues / Reviews (last 30 days): 0 / 0 / 0
 - Top languages in owned repos: Jupyter Notebook (38%), HTML (34%), Python (13%), Go (6%), TypeScript (4%)
-- Updated (UTC): 2026-07-17
+- Updated (UTC): 2026-07-18
 <!--END_SECTION:github-metrics-->
