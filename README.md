@@ -1,7 +1,6 @@
 ## Maksim Kleshchenok
 
-**Principal/Staff ML & MLOps Architect.** I build high-performance AI platforms and real-time pipelines.  
-Full CV (RU/EN): [HH](https://spb.hh.ru/resume/3b89b02cff0f6f749d0039ed1f70615a444248)  •  [LN](https://www.linkedin.com/in/kleshchenok/)  •  [Email](shadowklesh+github@gmail.com)
+**Principal/IC/AI MLE & MLOps Architect.** I build high-performance AI platforms and real-time pipelines.  
 
 **Focus:** LLM/ML platforms (ClearML, DataHub, MinIO), GPU perf (FP8/INT4, TensorRT/Triton, NVLink/IB, k8s).  
 **Value:** measurable latency/cost cuts, reproducible pipelines, incident-ready ops culture.
