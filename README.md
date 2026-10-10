@@ -8,6 +8,7 @@
 ### Selected work (KvadricepsAI)
 - **AI video localization platform** — video/audio → speech recognition, translation and voice dubbing pipeline (GPM AdTech 2024 — 1st).
 - **Low-Poly 3D Generator** — text/image → GLB/UV/PBR in ~1 min. End-to-end demo (GameDevAI 2025 — 1st). [[repo]](https://github.com/gulldan/gamedevai2025)
+- **avitoctf2026** - ctf (2nd place with ai) [[repo]](https://github.com/gulldan/avitoctf2026)
 - **AI product catalog normalization** — raw RZD product catalog → clustered, enriched and normalized item attributes using embeddings, LLMs and web parsing (Цифровой прорыв 2024, RZD case - 2nd). [[repo]](https://github.com/gulldan/cp2024spb-rzd)
 - **Multimodal copyright detection** — video files → duplicate/copyright-match detection using frame embeddings, wav2vec2 audio embeddings, vector search and similarity filtering (Цифровой прорыв 2024, Yappy case - 3rd). [[repo]](https://github.com/gulldan/cp2024-yappy-quadriceps)
 - **FetalCare CTG** — ingest → analytics → clinician UI; rules+ML (NICE/ACOG/NICHD) (LCT 2025). [[repo]](https://github.com/gulldan/lct2025-kvadriceps-fetal-public)
